@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/history"
+        android:icon="@drawable/ic_baseline_history_24"
+        android:title="@string/history" />
+    <item
+        android:id="@+id/songs"
+        android:icon="@drawable/ic_note"
+        android:title="@string/play" />
+    <item
+        android:id="@+id/favourites"
+        android:icon="@drawable/ic_star_border"
+        android:title="@string/favourites" />
+
+</menu>

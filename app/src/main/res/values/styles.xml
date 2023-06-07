@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Amiko16">
+        <item name="fontFamily">@font/amiko</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">16dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="AmikoBold16">
+        <item name="fontFamily">@font/amiko_bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">16dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+</resources>
