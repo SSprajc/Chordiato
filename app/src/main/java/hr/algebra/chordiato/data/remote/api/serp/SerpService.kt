@@ -6,8 +6,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 class SerpService {
     private lateinit var serpApi: SerpApi
 
-    fun getSerpApi() : SerpApi {
-        if(!::serpApi.isInitialized) {
+    fun getSerpApi(): SerpApi {
+        if (!::serpApi.isInitialized) {
             val retrofit = Retrofit.Builder()
                 .baseUrl(SERP_API_URL)
                 .addConverterFactory(GsonConverterFactory.create())

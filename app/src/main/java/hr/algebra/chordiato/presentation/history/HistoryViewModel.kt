@@ -5,24 +5,20 @@ import androidx.lifecycle.viewModelScope
 import hr.algebra.chordiato.domain.model.Track
 import hr.algebra.chordiato.domain.use_case.GetSongsUseCase
 import hr.algebra.chordiato.domain.use_case.ToggleFavouriteUseCase
-import hr.algebra.chordiato.presentation.favourites.FavouritesState
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
-class HistoryViewModel() : ViewModel() {
+class HistoryViewModel : ViewModel() {
 
     private val getSongsUseCase = GetSongsUseCase()
     private val toggleFavouriteUseCase = ToggleFavouriteUseCase()
 
-    private val _state = MutableSharedFlow<HistoryState>()
-    val state = _state.asSharedFlow()
-
-    private var fetchJob: Job? = null
-
-    init {
-        getTracks()
-    }
+    private val _state = MutableStateFlow(HistoryState())
+    val state = _state.asStateFlow()
 
     fun onEvent(event: HistoryEvent) {
         when (event) {
@@ -39,20 +35,18 @@ class HistoryViewModel() : ViewModel() {
         }
     }
 
-    fun getTracks() {
+    private var fetchJob: Job? = null
 
+    fun getTracks() {
         fetchJob?.cancel()
         fetchJob = getSongsUseCase(false).onEach { result ->
-
+            _state.emit(HistoryState(tracks = emptyList()))
             _state.emit(HistoryState(tracks = result))
-            //_state.value = _state.value.copy(tracks = result)
-
         }.launchIn(viewModelScope)
     }
 
     data class HistoryState(
         val isLoading: Boolean = false,
         val tracks: List<Track> = emptyList(),
-        val error: String = "",
     )
 }

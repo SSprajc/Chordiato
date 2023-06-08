@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
     app:startDestination="@id/songs">
-<!--
+
     <fragment
         android:id="@+id/favourites"
         android:name="hr.algebra.chordiato.presentation.favourites.FavouritesFragment"
@@ -20,5 +20,5 @@
         android:name="hr.algebra.chordiato.presentation.history.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
-        -->
+
 </navigation>

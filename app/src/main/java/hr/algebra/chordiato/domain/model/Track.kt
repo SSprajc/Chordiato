@@ -1,7 +1,6 @@
 package hr.algebra.chordiato.domain.model
 
 import java.time.LocalDate
-import java.time.LocalDateTime
 
 data class Track(
     val id: Int,
@@ -9,5 +8,5 @@ data class Track(
     val artist: String,
     var favourite: Boolean? = false,
     var link: String?,
-    var lastPlayed: LocalDate?
+    var lastPlayed: LocalDate?,
 )

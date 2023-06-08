@@ -2,7 +2,6 @@ package hr.algebra.chordiato.data.remote.api.shazam
 
 import hr.algebra.chordiato.data.remote.dto.shazam.ShazamResponseDto
 import okhttp3.RequestBody
-import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.Headers
 import retrofit2.http.POST

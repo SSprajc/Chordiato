@@ -16,9 +16,11 @@
 
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/frag"
+        android:id="@+id/fragContainer"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        app:navGraph="@navigation/main_nav" />
     <!--
             <WebView
                 android:id="@+id/webView"
@@ -26,7 +28,7 @@
                 android:layout_height="match_parent" />
     -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/appBar"
+        android:id="@+id/bottomNavView"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_gravity="bottom"

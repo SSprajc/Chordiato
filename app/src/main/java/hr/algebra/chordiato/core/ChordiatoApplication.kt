@@ -6,7 +6,6 @@ import hr.algebra.chordiato.data.local.TrackDatabase
 
 class ChordiatoApplication : BaseApplication() {
 
-
     /** Instance of application. */
     val application: Application
         get() = instance
@@ -22,26 +21,5 @@ class ChordiatoApplication : BaseApplication() {
         lateinit var instance: Application
             private set
     }
-/*
-    private lateinit var trackDao: TrackDao
 
-    init {
-        instance = this
-    }
-
-    override fun onCreate() {
-        super.onCreate()
-        var context: Context = ChordiatoApplication.applicationContext()
-        var db = TrackDatabase.getInstance( this)
-        trackDao = db.trackDao
-    }
-    companion object {
-        private var instance: ChordiatoApplication? = null
-        fun applicationContext() : Context {
-            return instance!!.applicationContext
-        }
-    }
-
-    fun getTrackDao() = trackDao
- */
 }

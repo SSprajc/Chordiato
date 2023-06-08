@@ -1,7 +1,6 @@
 package hr.algebra.chordiato.data.remote.api.serp
 
 import hr.algebra.chordiato.data.remote.dto.serp.SerpResponseDto
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -16,6 +15,6 @@ interface SerpApi {
         @Query("engine") engine: String,
         @Query("api_key") apiKey: String,
         @Query("q") query: String,
-        @Query("num") num: Int
-    ) : SerpResponseDto
+        @Query("num") num: Int,
+    ): SerpResponseDto
 }

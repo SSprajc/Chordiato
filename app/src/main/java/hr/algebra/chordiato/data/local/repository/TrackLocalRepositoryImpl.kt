@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class TrackLocalRepositoryImpl(
-    val application: Application
+    val application: Application,
 ) : TrackLocalRepository {
 
     private var dao: TrackDao = application.provideDatabase().trackDao

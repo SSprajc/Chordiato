@@ -1,8 +1,8 @@
 package hr.algebra.chordiato.domain.use_case
 
 import hr.algebra.chordiato.core.util.Resource
-import hr.algebra.chordiato.data.util.toTrack
 import hr.algebra.chordiato.data.remote.repository.TrackRemoteRepositoryImpl
+import hr.algebra.chordiato.data.util.toTrack
 import hr.algebra.chordiato.domain.model.Track
 import hr.algebra.chordiato.domain.repository.TrackRemoteRepository
 import kotlinx.coroutines.flow.Flow

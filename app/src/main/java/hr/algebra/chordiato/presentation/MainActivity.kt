@@ -5,12 +5,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import hr.algebra.chordiato.R
 import hr.algebra.chordiato.databinding.ActivityMainBinding
-import hr.algebra.chordiato.presentation.favourites.FavouritesFragment
-import hr.algebra.chordiato.presentation.history.HistoryFragment
-import hr.algebra.chordiato.presentation.main.SheetFragment
 
 const val REQ_CODE = 123
 
@@ -28,33 +27,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupNavigation() {
-        navigateWithFragmentManager(SheetFragment())
-        binding.appBar.apply {
-            setOnItemSelectedListener {
-                when (it.itemId) {
-                    R.id.history -> {
-                        navigateWithFragmentManager(HistoryFragment())
-                        true
-                    }
-                    R.id.favourites -> {
-                        navigateWithFragmentManager(FavouritesFragment())
-                        true
-                    }
-                    R.id.songs -> {
-                        navigateWithFragmentManager(SheetFragment())
-                        true
-                    }
-                    else -> false
-                }
-            }
-        }
-        binding.appBar.selectedItemId = R.id.songs
-    }
-
-    private fun navigateWithFragmentManager(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.frag, fragment)
-        }.commit()
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragContainer) as NavHostFragment
+        val navController = navHostFragment.navController
+        val navView: BottomNavigationView = findViewById(R.id.bottomNavView)
+        navView.setupWithNavController(navController)
     }
 
     private fun setupPermission() {

@@ -13,7 +13,7 @@ class GetSheetUseCase() {
 
     private val repository: TrackRemoteRepository = TrackRemoteRepositoryImpl()
 
-    operator fun invoke(songName: String, artist: String) : Flow<Resource<String>> = flow {
+    operator fun invoke(songName: String, artist: String): Flow<Resource<String>> = flow {
         try {
             emit(Resource.Loading())
             val link = repository.getChordsLink(songName, artist).organicResults?.get(0)?.link

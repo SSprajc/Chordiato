@@ -5,12 +5,11 @@ import kotlinx.coroutines.flow.Flow
 
 interface TrackLocalRepository {
 
-    //nemoraju bit suspend kad je flow
-    fun getAllTracks() : Flow<List<Track>>
+    fun getAllTracks(): Flow<List<Track>>
 
-    fun getFavouriteTracks() : Flow<List<Track>>
+    fun getFavouriteTracks(): Flow<List<Track>>
 
-    suspend fun insertTrack(track: Track) : Long
+    suspend fun insertTrack(track: Track): Long
 
     suspend fun updateTrack(track: Track)
 
